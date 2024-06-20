@@ -1,16 +1,17 @@
 import React from 'react';
+import './css/App.css'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './components/Home/Home.jsx';
-import Header from './components/Header/Header.jsx';
 import Form from './components/Form/Form.jsx';
+
 
 const HeaderRoute = () => {
     const location = useLocation();
     const hideHeader = location.pathname === '/login' || location.pathname === '/signup';
-
+    
     return (
-        <>
-            {!hideHeader && <Header />}
+        <div className='scrollbar-thin scrollbar-thumb-red-500 scrollbar-track-slate-700 scrollb'>
+            
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/tvShows' element={<Home />} />
@@ -20,7 +21,7 @@ const HeaderRoute = () => {
                 <Route path='/login' element={<Form />} />
                 <Route path='/signup' element={<Form />} />
             </Routes>
-        </>
+        </div>
     );
 };
 
